@@ -10,7 +10,10 @@ For personal use:
 
 
 For replication:
-- **Not in git:** note the `.pt` checkpoint files are too large so download them from HuggingFace instead (will add link soon)
+- **Not in git:** the `.pt` files are too large. Download them from the Hugging Face repo
+  [alexgower/PotentialEP](https://huggingface.co/alexgower/PotentialEP) (one folder per model; the layout and
+  SHA256 of every file are in `MODEL_CARD.md`, the repo's model card). Example:
+  `hf download alexgower/PotentialEP ift/checkpoint.pt --local-dir ./ckpts`.
 
 ## The files
 
@@ -81,23 +84,24 @@ Things to know when running these:
 
 ## Full release manifest
 
-Seven checkpoints in total (5.6 GB): each arm's final model, plus the phase-1 checkpoint it was
-polished from. The two phase-1 files are not stored in this folder; the release host (HuggingFace) carries them
-under the names below.
+Eight checkpoints (6.4 GB) on Hugging Face at [alexgower/PotentialEP](https://huggingface.co/alexgower/PotentialEP):
+each arm's final model, plus the phase-1 checkpoint it was polished from. The local name is the file as it sits in
+this repository's folders; the phase-1 files are not stored in this folder.
 
-| arm | phase | file | md5 | FID (50k, EMA) |
-|---|---|---|---|---|
-| backpropagation | 1 | `checkpoint_warmup_145000.pt` (Sec. 4.1 folder) | `e26c05d49e1ca18e25729fcee73c60c6` | 6.4242 (τ_s 1.0) |
-| backpropagation | 2 | `checkpoint_postcd_147000.pt` (Sec. 4.1 folder) | `ff66ba4e68c8fd166a7e06541a920955` | 3.5370 (τ_s 3.25) |
-| implicit solve | 1 | `ift_phase1_145000.pt` | `2281fd8461c7e20d46bda41202bad063` | 6.7040 (τ_s 1.0) |
-| implicit solve | 2 | `ift_postcd_147000.pt` | `0c40f9c102b7b8a2ef3b8df834e66f33` | 3.6351 (τ_s 3.25) |
-| EP | 1 | `ep_phase1_100000.pt` | `ed9305abc0a21ddd34fa170604836283` | 6.2336 (τ_s 1.0) |
-| EP | 2 | `ep_postcd_102000.pt` | `6dc09bad8db4445fd2ee2cc7f732acd4` | 3.6401 (τ_s 3.25) |
-| norm/attention-free | 2 | `ws192_postcd_177000.pt` | `baa7c164035499592cbafbca43f4b3e8` | 3.5089 (τ_s 5.0) |
+| arm | phase | Hugging Face path | local name | md5 | FID (50k, EMA) |
+|---|---|---|---|---|---|
+| backpropagation | 1 | `em_replication/phase1/checkpoint_145000.pt` | `checkpoint_warmup_145000.pt` (Sec. 4.1 folder) | `e26c05d49e1ca18e25729fcee73c60c6` | 6.4242 (τ_s 1.0) |
+| backpropagation | 2 | `em_replication/checkpoint.pt` | `checkpoint_postcd_147000.pt` (Sec. 4.1 folder) | `ff66ba4e68c8fd166a7e06541a920955` | 3.5370 (τ_s 3.25) |
+| implicit solve | 1 | `ift/phase1/checkpoint_145000.pt` | `ift_phase1_145000.pt` | `2281fd8461c7e20d46bda41202bad063` | 6.7040 (τ_s 1.0) |
+| implicit solve | 2 | `ift/checkpoint.pt` | `ift_postcd_147000.pt` | `0c40f9c102b7b8a2ef3b8df834e66f33` | 3.6351 (τ_s 3.25) |
+| EP | 1 | `ep/phase1/checkpoint_100000.pt` | `ep_phase1_100000.pt` | `ed9305abc0a21ddd34fa170604836283` | 6.2336 (τ_s 1.0) |
+| EP | 1 (end of run) | `ep/phase1/checkpoint_145000.pt` | `ep_phase1_145000.pt` | `d97addd7b5414095a0f48c77397a8839` | 6.8715 (τ_s 1.0) |
+| EP | 2 | `ep/checkpoint.pt` | `ep_postcd_102000.pt` | `6dc09bad8db4445fd2ee2cc7f732acd4` | 3.6401 (τ_s 3.25) |
+| norm/attention-free | 2 | `norm_attn_free/checkpoint.pt` | `ws192_postcd_177000.pt` | `baa7c164035499592cbafbca43f4b3e8` | 3.5089 (τ_s 5.0) |
 
 - **EP's phase-1 file is its 100k checkpoint**, because that is where its contrastive phase starts
-  (Sec. 5). The same run's 145k checkpoint, discussed in App. experimental-implementation, is also
-  released as `ep_phase1_145000.pt`.
+  (Sec. 5). The same run's 145k checkpoint, discussed in App. experimental-implementation, is released
+  alongside it; it does not survive the contrastive phase.
 - **The norm/attention-free arm has no phase-1 row.** Its phase 1 ran a different schedule, to 175k
   steps (see `fid_vs_steps_main_arms/EXPLANATION.md`), so it is not comparable with the others.
 

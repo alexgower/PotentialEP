@@ -1,6 +1,7 @@
 # PotentialEP: Backprop-Free Training of CIFAR-Scale Generative Models via Equilibrium Propagation
 
 [![arXiv](https://img.shields.io/badge/arXiv-2610.14409-b31b1b.svg)](https://arxiv.org/abs/2610.14409)
+[![Hugging Face](https://img.shields.io/badge/🤗-Checkpoints-yellow)](https://huggingface.co/alexgower/PotentialEP)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 PotentialEP runs the 50M-parameter [Energy Matching](https://arxiv.org/abs/2504.10612) potential as a
@@ -226,7 +227,7 @@ each number. Where a result has tables or figures, standalone `make_tables.py` /
 | [`equivalence_at_inference/`](results_cifar10_pcn/in_paper/equivalence_at_inference/) | PCN velocity vs the feedforward velocity across clamp strength, relaxation budget and precision; the matched-seed FID behind backprop-free generation |
 | [`equivalence_at_training/`](results_cifar10_pcn/in_paper/equivalence_at_training/) | EP and IFT parameter updates vs the backprop gradient: the γ × β window, the free-phase budget, the nudge strength |
 | [`fid_vs_steps_main_arms/`](results_cifar10_pcn/in_paper/fid_vs_steps_main_arms/) | the CIFAR-10 FID table above, and FID against phase-1 training steps |
-| [`checkpoints_main_arms/`](results_cifar10_pcn/in_paper/checkpoints_main_arms/) | the released checkpoints, their hashes, and the FID command for each |
+| [`checkpoints_main_arms/`](results_cifar10_pcn/in_paper/checkpoints_main_arms/) | the released checkpoints (on [Hugging Face](https://huggingface.co/alexgower/PotentialEP)), their hashes, and the FID command for each |
 | [`sample_grids_main_arms/`](results_cifar10_pcn/in_paper/sample_grids_main_arms/) | the sample grids of each model |
 
 ## Built on Energy Matching
