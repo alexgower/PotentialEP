@@ -20,8 +20,7 @@ Unconditional CIFAR-10, 50k samples, EMA weights, after the contrastive phase.
 | PotentialEP | EP | 50M | 3.64 | 3.25 |
 | Energy Matching, norm- and attention-free | backprop | 78M | 3.51 | 5.0 |
 
-The PotentialEP rows draw their phase-2 (contrastive-divergence) negatives with a feedforward twin of the
-network, as in the paper. The evaluation logs behind every number are in
+The evaluation logs behind every number are in
 [`results_cifar10_pcn/in_paper/fid_vs_steps_main_arms/`](results_cifar10_pcn/in_paper/fid_vs_steps_main_arms/).
 
 <p align="center">
