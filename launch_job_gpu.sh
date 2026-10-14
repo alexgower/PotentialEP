@@ -38,7 +38,7 @@ module load python
 echo "Modules loaded."
 
 echo "============================================"
-echo "  EnergyMatchingEqProp — GPU SLURM Job"
+echo "  PotentialEP — GPU SLURM Job"
 echo "============================================"
 echo "Experiment:      $EXPERIMENT"
 echo "Training script: $TRAIN_SCRIPT"

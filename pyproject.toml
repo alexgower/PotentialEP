@@ -1,7 +1,7 @@
 [project]
-name = "energymatchingeqprop"
+name = "potentialep"
 version = "0.1.0"
-description = "Add your description here"
+description = "PotentialEP: backprop-free training of CIFAR-scale generative models via equilibrium propagation"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [

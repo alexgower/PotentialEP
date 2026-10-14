@@ -413,7 +413,7 @@ wheels = [
 ]
 
 [[package]]
-name = "energymatchingeqprop"
+name = "potentialep"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

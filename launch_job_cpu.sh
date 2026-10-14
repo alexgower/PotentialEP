@@ -42,7 +42,7 @@ module load python
 echo "Modules loaded."
 
 echo "============================================"
-echo "  EnergyMatchingEqProp — CPU SLURM Job"
+echo "  PotentialEP — CPU SLURM Job"
 echo "============================================"
 echo "Experiment:      $EXPERIMENT"
 echo "Training script: $TRAIN_SCRIPT"

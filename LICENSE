@@ -1,6 +1,8 @@
 MIT License
 
-Copyright (c) 2025 Michal Balcerak
+Copyright (c) 2025 Michal Balcerak (Energy Matching, https://github.com/m1balcerak/EnergyMatching)
+Copyright (c) 2026 Alex Gower (PotentialEP additions: experiments/cifar10_pcn/,
+experiments/mnist_pcn/, experiments/mnist_from_cifar10/ and results_*/in_paper/)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
