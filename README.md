@@ -99,8 +99,7 @@ equivalent environment first.
   `o = V/alpha`, so `gamma_code = alpha * gamma_V`, with `alpha = output_scale`
   = 1000 (CIFAR-10, ImageNet-32) and 100 (MNIST). Every command below uses code
   units. The recipe point `--pcn_gamma=0.1` is `gamma_V = 1e-4`.
-- **FID protocols.** 50k samples is the only quotable "report" protocol; the
-  5k/10k variants are ranking instruments only. Never mix them in one table.
+- **FID protocols.** 50k samples is the only quotable "report" protocol;
   `--fid_seed` fixes the sampling noise so two samplers can be compared as a
   matched pair.
 - **TF32** matmul kernels are enabled throughout, which sets a relative velocity
